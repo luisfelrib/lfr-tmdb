@@ -1,5 +1,5 @@
-require('dotenv').config();
+require('dotenv').config({ path: `.env_${process.env.NODE_ENV}.env` });
 // require('./src/infrastructure/database');
-const app = require('./src/infrastructure/express_server');
+const { startServer } = require('./src/infrastructure/express_server');
 
-app.start();
+startServer();

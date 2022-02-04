@@ -11,11 +11,11 @@ app.use(express.json());
 // Endpoints
 require('../port/rest_apis/express_apis')(app);
 
-const start = () => {
+const startServer = () => {
   app.listen(process.env.SERVER_PORT, () => {
     // eslint-disable-next-line no-console
     console.log(`REST server running on port ${process.env.SERVER_PORT}...`);
   });
 };
 
-module.exports = { start };
+module.exports = { app, startServer };

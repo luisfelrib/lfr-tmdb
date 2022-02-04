@@ -4,7 +4,8 @@
   "description": "Thin application to show some NodeJS skills using informations of The Movie Database",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "dev": "NODE_ENV=dev node server.js",
+    "start": "NODE_ENV=prod node server.js",
     "test": "jest --testEnvironment=node --runInBand --coverage --forceExit"
   },
   "repository": {

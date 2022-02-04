@@ -100,3 +100,4 @@ dist
 .tern-port
 
 .env.dev
+.env_dev.env
