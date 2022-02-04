@@ -1,0 +1,32 @@
+{
+  "name": "thin-tmdb",
+  "version": "1.0.0",
+  "description": "Thin application to show some NodeJS skills using informations of The Movie Database",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest --testEnvironment=node --runInBand --coverage --forceExit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisfelrib/thin-tmdb.git"
+  },
+  "author": "Luis Felipe (luisfelrib@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisfelrib/thin-tmdb/issues"
+  },
+  "homepage": "https://github.com/luisfelrib/thin-tmdb#readme",
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.2"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "sequelize": "^6.15.0",
+    "validate.js": "^0.13.1"
+  }
+}
