@@ -1,6 +1,6 @@
-const getCacheKey = () => {
+const getCacheKey = (language, type) => {
   const dateKey = new Date().toISOString().split('T')[0];
-  return dateKey;
+  return `thin_tmdb_${type}_${dateKey}_${language}`;
 };
 
 const filterAndAddFullImagePath = (data, type) => {
