@@ -32,7 +32,35 @@ const retrieveTrendingTvShows = async (language) => {
   return tvShows;
 };
 
+const getMovieDetails = async (language, movieId) => {
+  const error = TmdbDomain.validateDetailRequest(language, movieId);
+  if (error) {
+    return error;
+  }
+  const movieDetails = await TmdbAdapter.getMovieDetails(language, movieId);
+  const [err, details] = TmdbDomain.validateDetails(movieDetails);
+  if (err) {
+    return err;
+  }
+  return details;
+};
+
+const getTvShowDetails = async (language, tvShowId) => {
+  const error = TmdbDomain.validateDetailRequest(language, tvShowId);
+  if (error) {
+    return error;
+  }
+  const tvShowDetails = await TmdbAdapter.getTvShowDetails(language, tvShowId);
+  const [err, details] = TmdbDomain.validateDetails(tvShowDetails);
+  if (err) {
+    return err;
+  }
+  return details;
+};
+
 module.exports = {
   retrieveTrendingMovies,
   retrieveTrendingTvShows,
+  getMovieDetails,
+  getTvShowDetails,
 };
