@@ -52,4 +52,19 @@ module.exports = (app) => {
     res.status(Utils.responseStatus(response));
     res.json(response);
   });
+
+  app.post(`${userRoute}/mylist`, Utils.checkJWT, async (req, res) => {
+    const { body } = req;
+    const { id } = req.params;
+    const response = await UserService.addToUserPlaylist(id, body);
+    res.status(Utils.responseStatus(response));
+    res.json(response);
+  });
+
+  app.get(`${userRoute}/mylist`, Utils.checkJWT, async (req, res) => {
+    const { id } = req.params;
+    const response = await UserService.getUserPlaylist(id);
+    res.status(Utils.responseStatus(response));
+    res.json(response);
+  });
 };
