@@ -31,7 +31,27 @@ const login = async (data) => {
   return { accessToken, user };
 };
 
+const addToUserPlaylist = async (userId, data) => {
+  const [error, itemToAdd] = UserDomain.validateAddToPlaylist(userId, data);
+  if (error) {
+    return error;
+  }
+  const response = await UserRepository.addToUserPlaylist(itemToAdd);
+  const err = UserDomain.validateAddedItemDbResponse(response);
+  if (err) {
+    return err;
+  }
+  return response;
+};
+
+const getUserPlaylist = async (userId) => {
+  const response = await UserRepository.getUserPlaylist(userId);
+  return response;
+};
+
 module.exports = {
   createUser,
   login,
+  addToUserPlaylist,
+  getUserPlaylist,
 };

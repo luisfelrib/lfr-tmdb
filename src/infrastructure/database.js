@@ -35,8 +35,7 @@ const User = sequelize.define('User', {
 
 const Playlist = sequelize.define('Playlist', {
   id: {
-    type: Sequelize.INTEGER,
-    autoIncrement: true,
+    type: Sequelize.STRING,
     primaryKey: true,
   },
   tmdbId: {
@@ -61,9 +60,8 @@ const Playlist = sequelize.define('Playlist', {
   },
 }, {
   tableName: 'playlist',
-  underscored: true,
 });
-Playlist.belongsTo(User, { foreignKey: 'user_id', as: 'user' });
+Playlist.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
 // Auto-create table if not exists
 function initModels() {
