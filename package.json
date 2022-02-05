@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "NODE_ENV=dev node server.js",
-    "start": "NODE_ENV=prod node server.js",
+    "start": "node server.js",
     "test": "jest --testEnvironment=node --runInBand --coverage --forceExit"
   },
   "repository": {
