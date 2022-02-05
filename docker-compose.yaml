@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  redis:
+    image: redis
+    command: redis-server --requirepass redis2022!
+    hostname: redis
+    ports:
+      - "6379:6379"
+    networks:
+      - thin-tmdb-network
+
+  mysql:
+    image: mysql:5.7
+    hostname: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: "mySql2022!"
+      MYSQL_DATABASE: "thintmdb"
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+    networks:
+      - thin-tmdb-network
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+    networks:
+      - thin-tmdb-network
+
+networks: 
+  thin-tmdb-network:
+    driver: bridge
