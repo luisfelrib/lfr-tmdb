@@ -1,53 +1,37 @@
 /* eslint-disable no-param-reassign */
-const UserRepository = require('../port/user/user_repository');
+// const UserRepository = require('../port/user/user_repository');
 const UserDomain = require('../domain/user');
+const UserRepository = require('../port/user_repository/adapter');
+const Utils = require('../utils');
 
-const UserService = {
-
-  async createUser(data) {
-    const [error, user] = UserDomain.create(data);
-    if (error) {
-      return error;
-    }
-    const response = await UserRepository.createUser(user);
-    return response;
-  },
-
-  async editUser(data) {
-    const [error, user] = UserDomain.edit(data);
-    if (error) {
-      return error;
-    }
-    const response = await UserRepository.editUser(user);
-    return response;
-  },
-
-  async listUsers(data) {
-    const [error, tenant] = UserDomain.list(data);
-    if (error) {
-      return error;
-    }
-    const response = await UserRepository.listUsers(tenant);
-    return response;
-  },
-
-  async deleteUser(data) {
-    const [error, user] = UserDomain.delete(data);
-    if (error) {
-      return error;
-    }
-    const response = await UserRepository.deleteUser(user);
-    return response;
-  },
-
-  async getUserByUserName(data) {
-    const [error, user] = UserDomain.getUserByName(data);
-    if (error) {
-      return error;
-    }
-    const response = await UserRepository.getUserByUserName(user);
-    return response;
-  },
+const createUser = async (data) => {
+  const error = UserDomain.validateCreate(data);
+  if (error) {
+    return error;
+  }
+  const response = await UserRepository.save(data);
+  const [errorGetUser, user] = UserDomain.validateUser(response);
+  if (errorGetUser) {
+    return errorGetUser;
+  }
+  return user;
 };
 
-module.exports = UserService;
+const login = async (data) => {
+  const error = UserDomain.validateLogin(data);
+  if (error) {
+    return error;
+  }
+  const response = await UserRepository.getUser(data);
+  const [errorGetUser, user] = UserDomain.validateUser(response);
+  if (errorGetUser) {
+    return errorGetUser;
+  }
+  const accessToken = Utils.createJWT(user);
+  return { accessToken, user };
+};
+
+module.exports = {
+  createUser,
+  login,
+};

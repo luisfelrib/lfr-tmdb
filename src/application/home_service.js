@@ -3,7 +3,10 @@ const TmdbAdapter = require('../port/tmdb_apis/adapter');
 const CacheAdapter = require('../port/cache/adapter');
 
 const retrieveTrendingMovies = async (language) => {
-  const cacheKey = HomeDomain.getCacheKey(language, 'movie');
+  const [error, cacheKey] = HomeDomain.getCacheKey(language, 'movie');
+  if (error) {
+    return error;
+  }
   const cache = await CacheAdapter.get(cacheKey);
   if (cache) {
     return cache;
@@ -15,7 +18,10 @@ const retrieveTrendingMovies = async (language) => {
 };
 
 const retrieveTrendingTvShows = async (language) => {
-  const cacheKey = HomeDomain.getCacheKey(language, 'tv');
+  const [error, cacheKey] = HomeDomain.getCacheKey(language, 'tv');
+  if (error) {
+    return error;
+  }
   const cache = await CacheAdapter.get(cacheKey);
   if (cache) {
     return cache;

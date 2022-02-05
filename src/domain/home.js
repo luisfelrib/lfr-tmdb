@@ -1,6 +1,14 @@
+const Constants = require('../utils/constants');
+
 const getCacheKey = (language, type) => {
+  if (!language) {
+    const response = Constants.ERR_VALIDATION;
+    response.message = 'Header accept-language must be valid (eg: pt-BR)';
+    return [response, null];
+  }
+  const lang = language.split(',')[0];
   const dateKey = new Date().toISOString().split('T')[0];
-  return `thin_tmdb_${type}_${dateKey}_${language}`;
+  return [null, `thin_tmdb_${type}_${dateKey}_${lang}`];
 };
 
 const filterAndAddFullImagePath = (data, type) => {
