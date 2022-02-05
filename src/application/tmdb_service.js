@@ -1,9 +1,9 @@
-const HomeDomain = require('../domain/home');
+const TmdbDomain = require('../domain/tmdb');
 const TmdbAdapter = require('../port/tmdb_apis/adapter');
 const CacheAdapter = require('../port/cache/adapter');
 
 const retrieveTrendingMovies = async (language) => {
-  const [error, cacheKey] = HomeDomain.getCacheKey(language, 'movie');
+  const [error, cacheKey] = TmdbDomain.getCacheKey(language, 'movie');
   if (error) {
     return error;
   }
@@ -12,13 +12,13 @@ const retrieveTrendingMovies = async (language) => {
     return cache;
   }
   const moviesFromTmdb = await TmdbAdapter.getMovies(language);
-  const movies = HomeDomain.filterAndAddFullImagePath(moviesFromTmdb, 'movie');
+  const movies = TmdbDomain.filterAndAddFullImagePath(moviesFromTmdb, 'movie');
   CacheAdapter.set(cacheKey, movies);
   return movies;
 };
 
 const retrieveTrendingTvShows = async (language) => {
-  const [error, cacheKey] = HomeDomain.getCacheKey(language, 'tv');
+  const [error, cacheKey] = TmdbDomain.getCacheKey(language, 'tv');
   if (error) {
     return error;
   }
@@ -27,7 +27,7 @@ const retrieveTrendingTvShows = async (language) => {
     return cache;
   }
   const tvShowsFromTmdb = await TmdbAdapter.getTvShows(language);
-  const tvShows = HomeDomain.filterAndAddFullImagePath(tvShowsFromTmdb, 'tv');
+  const tvShows = TmdbDomain.filterAndAddFullImagePath(tvShowsFromTmdb, 'tv');
   CacheAdapter.set(cacheKey, tvShows);
   return tvShows;
 };

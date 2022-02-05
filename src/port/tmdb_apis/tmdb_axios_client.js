@@ -32,7 +32,27 @@ const trendingTvShowsWeek = async (language) => {
   }
 };
 
+const getMovieDetails = async (language, movieId) => {
+  try {
+    const response = await axiosInstance.get(`movie/${movieId}`, { params: { language } });
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};
+
+const getTvShowDetails = async (language, tvShowId) => {
+  try {
+    const response = await axiosInstance.get(`tv/${tvShowId}`, { params: { language } });
+    return response.data;
+  } catch (error) {
+    return error;
+  }
+};
+
 module.exports = {
   trendingMoviesWeek,
   trendingTvShowsWeek,
+  getMovieDetails,
+  getTvShowDetails,
 };

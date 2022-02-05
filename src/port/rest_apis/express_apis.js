@@ -1,4 +1,4 @@
-const HomeService = require('../../application/home_service');
+const TmdbService = require('../../application/tmdb_service');
 const UserService = require('../../application/user_service');
 const Utils = require('../../utils');
 
@@ -10,14 +10,14 @@ const login = '/login';
 module.exports = (app) => {
   app.get(`${moviesRoute}`, async (req, res) => {
     const language = req.get('accept-language');
-    const response = await HomeService.retrieveTrendingMovies(language);
+    const response = await TmdbService.retrieveTrendingMovies(language);
     res.status(Utils.responseStatus(response));
     res.json(response);
   });
 
   app.get(`${tvShowsRoute}`, async (req, res) => {
     const language = req.get('accept-language');
-    const response = await HomeService.retrieveTrendingTvShows(language);
+    const response = await TmdbService.retrieveTrendingTvShows(language);
     res.status(Utils.responseStatus(response));
     res.json(response);
   });
