@@ -1,7 +1,7 @@
 const redis = require('redis');
 
 const redisClient = redis.createClient({
-  url: 'redis://:redis2022!@localhost:6379',
+  url: `redis://:${process.env.REDIS_PASS}@${process.env.REDIS_HOST}:${process.env.REDIS_PORT}`,
 });
 redisClient.on('error', (error) => {
   // eslint-disable-next-line no-console
