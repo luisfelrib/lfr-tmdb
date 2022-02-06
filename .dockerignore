@@ -1,4 +1,4 @@
 node_modules
 coverage/
-.env_dev.env
+# .env_dev.env
 .env_prod.env
