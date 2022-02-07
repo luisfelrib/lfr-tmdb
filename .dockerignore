@@ -1,4 +1,8 @@
 node_modules
 coverage/
-# .env_dev.env
-.env_prod.env
+.env.docker.env
+.env.dev.env
+mysql
+tests
+docker-compose.yaml
+LFR TMDB.postman_collection.json

@@ -103,3 +103,4 @@ dist
 .env_dev.env
 mysql/
 .env.dev.env
+.env.docker.env
