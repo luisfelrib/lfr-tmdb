@@ -1,0 +1,924 @@
+{
+	"info": {
+		"_postman_id": "c1d7ec1c-ad01-433c-a734-27cce0339f47",
+		"name": "LFR TMDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luis Felipe\",\n    \"pass\": \"luis123\",\n    \"email\": \"luis@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": 15,\n    \"name\": \"Luis Felipe\",\n    \"email\": \"luisfelipe@email.com\"\n}"
+				},
+				{
+					"name": "Duplicate email",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luis Felipe\",\n    \"pass\": \"luis123\",\n    \"email\": \"luisfelipe@email.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application."
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the response."
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "Indicates the resource's media type."
+						},
+						{
+							"key": "Content-Length",
+							"value": "61",
+							"description": "An entity header indicating the size of the entity-body, in bytes."
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3d-vNkivv/GtHB9tLQ8YvrSoxILHlw\"",
+							"description": "Identifies a specific resource version."
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Feb 2022 15:32:23 GMT",
+							"description": "A general header containing the date and time the message was sent."
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "A general header specifying whether the current network connection will stay open once the current transaction finishes."
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errCode\": 500,\n    \"message\": \"SequelizeUniqueConstraintError\"\n}"
+				},
+				{
+					"name": "Missing parameters",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luis Felipe\",\n    \"pass\": \"luis123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express",
+							"description": "Specifies the technology (ASP.NET, PHP, JBoss, e.g.) supporting the web application."
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*",
+							"description": "Specifies a URI that may access the response."
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8",
+							"description": "Indicates the resource's media type."
+						},
+						{
+							"key": "Content-Length",
+							"value": "61",
+							"description": "An entity header indicating the size of the entity-body, in bytes."
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3d-vNkivv/GtHB9tLQ8YvrSoxILHlw\"",
+							"description": "Identifies a specific resource version."
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 07 Feb 2022 15:32:23 GMT",
+							"description": "A general header containing the date and time the message was sent."
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive",
+							"description": "A general header specifying whether the current network connection will stay open once the current transaction finishes."
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errCode\": 400,\n    \"message\": {\n        \"email\": [\n            \"Email can't be blank\"\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"luisfelipe@email.com\",\n    \"pass\": \"luis123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImlhdCI6MTY0NDI0ODQyNiwiZXhwIjoxNjQ0NjgwNDI2fQ.hTMCef-WcZ1M-McNBnO93yB11XRtd_8lG4nPlyR13OM\",\n    \"user\": {\n        \"id\": 15,\n        \"name\": \"Luis Felipe\",\n        \"email\": \"luisfelipe@email.com\"\n    }\n}"
+				},
+				{
+					"name": "Auth problem",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@email.com\",\n    \"pass\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/login",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"errCode\": 401,\n    \"message\": \"Unauthorized\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Add to User My List",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/user/mylist",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"mylist"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImlhdCI6MTY0NDI0ODQyNiwiZXhwIjoxNjQ0NjgwNDI2fQ.hTMCef-WcZ1M-McNBnO93yB11XRtd_8lG4nPlyR13OM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tmdbId\": 99966,\n    \"title\": \"Homem-Aranha: Sem Volta Para Casa\",\n    \"release_date\": \"2021-12-15\",\n    \"poster_path\": \"https://image.tmdb.org/t/p/w500/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg\",\n    \"type\": \"movie\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/user/mylist",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"mylist"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"id\": \"15-movie-99966\",\n    \"userId\": 15,\n    \"tmdbId\": 99966,\n    \"title\": \"Homem-Aranha: Sem Volta Para Casa\",\n    \"release_date\": \"2021-12-15\",\n    \"poster_path\": \"https://image.tmdb.org/t/p/w500/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg\",\n    \"type\": \"movie\",\n    \"updatedAt\": \"2022-02-07T15:47:06.758Z\",\n    \"createdAt\": \"2022-02-07T15:47:06.758Z\"\n}"
+				},
+				{
+					"name": "No Auth",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tmdbId\": 99966,\n    \"title\": \"Homem-Aranha: Sem Volta Para Casa\",\n    \"release_date\": \"2021-12-15\",\n    \"poster_path\": \"https://image.tmdb.org/t/p/w500/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg\",\n    \"type\": \"movie\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/user/mylist",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"mylist"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"auth\": false,\n    \"message\": \"No token provided.\"\n}"
+				},
+				{
+					"name": "Wrong token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "as.sd.bZhtM6h-UE3bLCVpmc1jBNIbgUERQC9KI95q33IJE8I",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tmdbId\": 99966,\n    \"title\": \"Homem-Aranha: Sem Volta Para Casa\",\n    \"release_date\": \"2021-12-15\",\n    \"poster_path\": \"https://image.tmdb.org/t/p/w500/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg\",\n    \"type\": \"movie\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:5000/api/user/mylist",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"mylist"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"auth\": false,\n    \"message\": \"Failed to authenticate token.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Ger User My List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/user/mylist",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"user",
+						"mylist"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImlhdCI6MTY0NDI0ODQyNiwiZXhwIjoxNjQ0NjgwNDI2fQ.hTMCef-WcZ1M-McNBnO93yB11XRtd_8lG4nPlyR13OM",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/user/mylist",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"mylist"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"6-movie-425909\",\n        \"tmdbId\": 425909,\n        \"title\": \"Ghostbusters: Afterlife\",\n        \"release_date\": \"2021-11-11\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/sg4xJaufDiQl7caFEskBtQXfD4x.jpg\",\n        \"type\": \"movie\",\n        \"createdAt\": \"2022-02-06T23:27:31.000Z\",\n        \"updatedAt\": \"2022-02-06T23:27:31.000Z\",\n        \"userId\": 6\n    },\n    {\n        \"id\": \"6-movie-524434\",\n        \"tmdbId\": 524434,\n        \"title\": \"Eternals\",\n        \"release_date\": \"2021-11-03\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/bcCBq9N1EMo3daNIjWJ8kYvrQm6.jpg\",\n        \"type\": \"movie\",\n        \"createdAt\": \"2022-02-06T23:28:03.000Z\",\n        \"updatedAt\": \"2022-02-06T23:28:03.000Z\",\n        \"userId\": 6\n    }\n]"
+				},
+				{
+					"name": "No Auth",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/user/mylist",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"mylist"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"auth\": false,\n    \"message\": \"No token provided.\"\n}"
+				},
+				{
+					"name": "Wrong token",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "as.sd.bZhtM6h-UE3bLCVpmc1jBNIbgUERQC9KI95q33IJE8I",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/user/mylist",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"mylist"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"auth\": false,\n    \"message\": \"Failed to authenticate token.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Trending Movies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/movie",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"movie"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-language",
+								"value": "pt-BR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/movie",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"movie"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 634649,\n        \"title\": \"Homem-Aranha: Sem Volta Para Casa\",\n        \"release_date\": \"2021-12-15\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/fVzXp3NwovUlLe7fvoRynCmBPNc.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 524434,\n        \"title\": \"Eternos\",\n        \"release_date\": \"2021-11-03\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/mzezdUZEnpiUIlxpdyLO1R08Lqm.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 644495,\n        \"title\": \"Casa Gucci\",\n        \"release_date\": \"2021-11-24\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/rxrVdr5x5FxOtbqS14UovcswFby.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 774825,\n        \"title\": \"A Era do Gelo: As Aventuras de Buck\",\n        \"release_date\": \"2022-01-28\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/1iVjKCGHPVNj7IQVB1DdpL8U7Y8.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 425909,\n        \"title\": \"Ghostbusters: Mais Além\",\n        \"release_date\": \"2021-11-11\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/719aIhGrTrJ0yzkZ806Ea4rbonV.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 597208,\n        \"title\": \"O Beco do Pesadelo\",\n        \"release_date\": \"2021-12-02\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/9HnTq2Kg0R4YpdB1B5r91mFt0S2.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 568124,\n        \"title\": \"Encanto\",\n        \"release_date\": \"2021-11-24\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/4j0PNHkMr5ax3IA8tjtxcmPU3QT.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 624860,\n        \"title\": \"Matrix Resurrections\",\n        \"release_date\": \"2021-12-16\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/9DT4WVqZqBEI9Kub18gZ3m1D89m.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 522016,\n        \"title\": \"As Agentes 355\",\n        \"release_date\": \"2022-01-05\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/rOzMhCNYABSg0dB8BbAeGG3pSzl.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 585083,\n        \"title\": \"Hotel Transilvânia: Transformonstrão\",\n        \"release_date\": \"2022-01-13\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/9PbtCo5IIkd26WPQfZUpPyn6fTz.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 438695,\n        \"title\": \"Sing 2\",\n        \"release_date\": \"2021-12-01\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/iMh4zsBn2sy2ZvwiVpVmDpAC8Vx.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 818647,\n        \"title\": \"Através da Minha Janela\",\n        \"release_date\": \"2022-02-04\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/lQHfOaggM8xjvgGvZHpFPYXduRE.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 438631,\n        \"title\": \"Duna\",\n        \"release_date\": \"2021-09-15\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/uzERcfV2rSHNhW5eViQiO9hNiA7.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 795514,\n        \"title\": \"A Vida Depois\",\n        \"release_date\": \"2022-01-28\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/oFU6XQAQR6SidzNTnPLzNj9Xc4H.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 370172,\n        \"title\": \"007: Sem Tempo para Morrer\",\n        \"release_date\": \"2021-09-29\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/luE0KG1rWfUptbgNtlNtL5sihyd.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 817648,\n        \"title\": \"Time do Coração\",\n        \"release_date\": \"2022-01-28\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/A3FKclpL2p5JsW5U70boHtNhZfr.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 580489,\n        \"title\": \"Venom: Tempo de Carnificina\",\n        \"release_date\": \"2021-09-30\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/h5UzYZquMwO9FVn15R2eK2itmHu.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 460458,\n        \"title\": \"Resident Evil: Bem-Vindo a Raccoon City\",\n        \"release_date\": \"2021-11-24\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/tnKi8Vx9mRvOGrmzBOOh5wHEbQI.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 646385,\n        \"title\": \"Pânico\",\n        \"release_date\": \"2022-01-12\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/2PYQKeDhFwP5IX7EnIpCComBqj8.jpg\",\n        \"type\": \"movie\"\n    },\n    {\n        \"id\": 689700,\n        \"title\": \"Clean\",\n        \"release_date\": \"2021-01-28\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/kRpKJstAW7DsoPAEBW2Kk1uD9Q6.jpg\",\n        \"type\": \"movie\"\n    }\n]"
+				},
+				{
+					"name": "Withou language header",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-language",
+								"value": "pt-BR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/movie",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"movie"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"errCode\": 400,\n    \"message\": \"Header accept-language must be valid (eg: pt-BR)\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Movie Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/movie/99966",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"movie",
+						"99966"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-language",
+								"value": "pt-BR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/movie/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"movie",
+								"{id}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"adult\": false,\n    \"backdrop_path\": \"/iQFcwSGbZXMkeyKrxbPnwnRo5fl.jpg\",\n    \"belongs_to_collection\": {\n        \"id\": 531241,\n        \"name\": \"Spider-Man (Avengers) Collection\",\n        \"poster_path\": \"/nogV4th2P5QWYvQIMiWHj4CFLU9.jpg\",\n        \"backdrop_path\": \"/AvnqpRwlEaYNVL6wzC4RN94EdSd.jpg\"\n    },\n    \"budget\": 200000000,\n    \"genres\": [\n        {\n            \"id\": 28,\n            \"name\": \"Action\"\n        },\n        {\n            \"id\": 12,\n            \"name\": \"Adventure\"\n        },\n        {\n            \"id\": 878,\n            \"name\": \"Science Fiction\"\n        }\n    ],\n    \"homepage\": \"https://www.spidermannowayhome.movie\",\n    \"id\": 634649,\n    \"imdb_id\": \"tt10872600\",\n    \"original_language\": \"en\",\n    \"original_title\": \"Spider-Man: No Way Home\",\n    \"overview\": \"Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man.\",\n    \"popularity\": 16564.335,\n    \"poster_path\": \"https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg\",\n    \"production_companies\": [\n        {\n            \"id\": 420,\n            \"logo_path\": \"/hUzeosd33nzE5MCNsZxCGEKTXaQ.png\",\n            \"name\": \"Marvel Studios\",\n            \"origin_country\": \"US\"\n        },\n        {\n            \"id\": 84041,\n            \"logo_path\": \"/nw4kyc29QRpNtFbdsBHkRSFavvt.png\",\n            \"name\": \"Pascal Pictures\",\n            \"origin_country\": \"US\"\n        },\n        {\n            \"id\": 5,\n            \"logo_path\": \"/71BqEFAF4V3qjjMPCpLuyJFB9A.png\",\n            \"name\": \"Columbia Pictures\",\n            \"origin_country\": \"US\"\n        }\n    ],\n    \"production_countries\": [\n        {\n            \"iso_3166_1\": \"US\",\n            \"name\": \"United States of America\"\n        }\n    ],\n    \"release_date\": \"2021-12-15\",\n    \"revenue\": 1775000000,\n    \"runtime\": 148,\n    \"spoken_languages\": [\n        {\n            \"english_name\": \"English\",\n            \"iso_639_1\": \"en\",\n            \"name\": \"English\"\n        },\n        {\n            \"english_name\": \"Tagalog\",\n            \"iso_639_1\": \"tl\",\n            \"name\": \"\"\n        }\n    ],\n    \"status\": \"Released\",\n    \"tagline\": \"The Multiverse unleashed.\",\n    \"title\": \"Spider-Man: No Way Home\",\n    \"video\": false,\n    \"vote_average\": 8.4,\n    \"vote_count\": 7255\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-language",
+								"value": "pt-BR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/movie/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"movie",
+								"{id}"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"errCode\": 500,\n    \"message\": \"Internal server error\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Trending TV Shows",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/tv-show/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tv-show",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-language",
+								"value": "pt-BR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/tv-show/",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tv-show",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 99966,\n        \"title\": \"All of Us Are Dead\",\n        \"release_date\": \"2022-01-28\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/z4IP8ZiKctB5U9brfKHYujYBUTD.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 108978,\n        \"title\": \"Reacher\",\n        \"release_date\": \"2022-02-03\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/bQnnKBe3VsvXKMoNCaYmRzs1Dup.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 85552,\n        \"title\": \"Euphoria\",\n        \"release_date\": \"2019-06-16\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/5mi3aRl16yKmfpQJMzvqN5TXkdA.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 115036,\n        \"title\": \"O Livro de Boba Fett\",\n        \"release_date\": \"2021-12-29\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/kVelEAAPWMMXCNwsX7YVE8iOlYs.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 110492,\n        \"title\": \"Pacificador\",\n        \"release_date\": \"2022-01-13\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/lBw4rwfoLsHAs5pTISgIOFnRk2c.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 1429,\n        \"title\": \"Attack on Titan\",\n        \"release_date\": \"2013-04-07\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/1XnZJZ6QDxgaVbnsGpNrBi13JfI.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 85937,\n        \"title\": \"Kimetsu no Yaiba\",\n        \"release_date\": \"2019-04-06\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/7Uj6vqmznWQ3w3hpQ1eIY9mMyMw.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 85723,\n        \"title\": \"Raised by Wolves\",\n        \"release_date\": \"2020-09-03\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/mTvSVKMn2Npf6zvYNbGMJnYLtvp.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 114925,\n        \"title\": \"Pam & Tommy\",\n        \"release_date\": \"2022-02-02\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/fDmy0FU90vGZo2Lw5oQR4QSh7cc.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 111838,\n        \"title\": \"A Vizinha da Mulher na Janela\",\n        \"release_date\": \"2022-01-28\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/1dK8PUpwn4dlAnHBGFi1g2QOxk4.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 71446,\n        \"title\": \"La Casa de Papel\",\n        \"release_date\": \"2017-05-02\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/qUmlmYWx3WndM01DHOTrmeiklVW.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 146173,\n        \"title\": \"À Tona\",\n        \"release_date\": \"2022-01-28\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/qx1n4iM443VF2jaS4z1Sm9ykuSR.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 100414,\n        \"title\": \"Suspicion\",\n        \"release_date\": \"2022-02-04\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/muLbLW8kWOSiEBLgmHeAw6gKpB0.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 93392,\n        \"title\": \"Criando Dion\",\n        \"release_date\": \"2019-10-04\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/y7M6iDITn5Ubk1gSQGC3ywBcqx0.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 125474,\n        \"title\": \"Naomi\",\n        \"release_date\": \"2022-01-11\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/xwS6ggTI8hTkVTz1I4U6BZ48pgZ.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 79680,\n        \"title\": \"Expresso do Amanhã\",\n        \"release_date\": \"2020-05-17\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/mt7mmif11QXf8hsfgDAlOGJwJcV.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 69740,\n        \"title\": \"Ozark\",\n        \"release_date\": \"2017-07-21\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/epUO5w9nRmozR0iWCFwChT3ha6j.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 37854,\n        \"title\": \"One Piece\",\n        \"release_date\": \"1999-10-20\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/goKUd5y4lHU3qkW0XKKxmNSNcem.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 1399,\n        \"title\": \"Game of Thrones\",\n        \"release_date\": \"2011-04-17\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/3pLLMbM33SBGrade4TuahCP1sdJ.jpg\",\n        \"type\": \"tv\"\n    },\n    {\n        \"id\": 135934,\n        \"title\": \"A Lenda de Vox Machina\",\n        \"release_date\": \"2022-01-27\",\n        \"poster_path\": \"https://image.tmdb.org/t/p/w500/4fqfhmVNOHe2nLcligiVMtMnfeM.jpg\",\n        \"type\": \"tv\"\n    }\n]"
+				},
+				{
+					"name": "Withou language header",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-language",
+								"value": "pt-BR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/tv-show",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tv-show"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"errCode\": 400,\n    \"message\": \"Header accept-language must be valid (eg: pt-BR)\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get TV Show Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/tv-show/99966",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"tv-show",
+						"99966"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-language",
+								"value": "pt-BR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/tv-show/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tv-show",
+								"{id}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"adult\": false,\n    \"backdrop_path\": \"/8Xs20y8gFR0W9u8Yy9NKdpZtSu7.jpg\",\n    \"created_by\": [\n        {\n            \"id\": 1108065,\n            \"credit_id\": \"61d19a62d19a33001ca9206e\",\n            \"name\": \"Chun Sung-il\",\n            \"gender\": 2,\n            \"profile_path\": \"/2rDOOw6nJTy7CR8ujL0lYjEvrKw.jpg\"\n        },\n        {\n            \"id\": 1182291,\n            \"credit_id\": \"61d19a4d4284ea0065f8b464\",\n            \"name\": \"JQ Lee\",\n            \"gender\": 2,\n            \"profile_path\": \"/ZPQFYDOujAIu5luJWG02mCHSzP.jpg\"\n        }\n    ],\n    \"episode_run_time\": [\n        61\n    ],\n    \"first_air_date\": \"2022-01-28\",\n    \"genres\": [\n        {\n            \"id\": 18,\n            \"name\": \"Drama\"\n        },\n        {\n            \"id\": 10765,\n            \"name\": \"Sci-Fi & Fantasy\"\n        }\n    ],\n    \"homepage\": \"https://www.netflix.com/title/81237994\",\n    \"id\": 99966,\n    \"in_production\": false,\n    \"languages\": [],\n    \"last_air_date\": \"2022-01-28\",\n    \"last_episode_to_air\": {\n        \"air_date\": \"2022-01-28\",\n        \"episode_number\": 12,\n        \"id\": 3472782,\n        \"name\": \"\",\n        \"overview\": \"The students make it to the quarantine camp, each of them weighed down by tragic loss. Months later, they hang on to hope for a survivor.\",\n        \"production_code\": \"\",\n        \"season_number\": 1,\n        \"still_path\": \"/6mNOhSfIlC1FUzcyejRuuPKDdBk.jpg\",\n        \"vote_average\": 9.667,\n        \"vote_count\": 3\n    },\n    \"name\": \"All of Us Are Dead\",\n    \"next_episode_to_air\": null,\n    \"networks\": [\n        {\n            \"name\": \"Netflix\",\n            \"id\": 213,\n            \"logo_path\": \"/wwemzKWzjKYJFfCeiB57q3r4Bcm.png\",\n            \"origin_country\": \"\"\n        }\n    ],\n    \"number_of_episodes\": 12,\n    \"number_of_seasons\": 1,\n    \"origin_country\": [\n        \"KR\"\n    ],\n    \"original_language\": \"ko\",\n    \"original_name\": \"지금 우리 학교는\",\n    \"overview\": \"A high school becomes ground zero for a zombie virus outbreak. Trapped students must fight their way out — or turn into one of the rabid infected.\",\n    \"popularity\": 7906.627,\n    \"poster_path\": \"https://image.tmdb.org/t/p/w500/pTEFqAjLd5YTsMD6NSUxV6Dq7A6.jpg\",\n    \"production_companies\": [\n        {\n            \"id\": 113553,\n            \"logo_path\": null,\n            \"name\": \"Film Monster\",\n            \"origin_country\": \"KR\"\n        },\n        {\n            \"id\": 86981,\n            \"logo_path\": \"/bS5ofUgzygOa5BE8sY3of7v8RmP.png\",\n            \"name\": \"JTBC Studios\",\n            \"origin_country\": \"KR\"\n        },\n        {\n            \"id\": 56797,\n            \"logo_path\": null,\n            \"name\": \"Kim Jong-hak Production\",\n            \"origin_country\": \"KR\"\n        }\n    ],\n    \"production_countries\": [\n        {\n            \"iso_3166_1\": \"KR\",\n            \"name\": \"South Korea\"\n        }\n    ],\n    \"seasons\": [\n        {\n            \"air_date\": \"2022-01-28\",\n            \"episode_count\": 12,\n            \"id\": 144348,\n            \"name\": \"Season 1\",\n            \"overview\": \"\",\n            \"poster_path\": \"/hYAGAVjqITdJG4MlWSNo5RLeo1F.jpg\",\n            \"season_number\": 1\n        }\n    ],\n    \"spoken_languages\": [],\n    \"status\": \"Ended\",\n    \"tagline\": \"Hope is the most painful torture for people who want to despair.\",\n    \"type\": \"Miniseries\",\n    \"vote_average\": 8.8,\n    \"vote_count\": 897\n}"
+				},
+				{
+					"name": "Error",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept-language",
+								"value": "pt-BR",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:5000/api/tv-show/{id}",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tv-show",
+								"{id}"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [],
+					"cookie": [],
+					"body": "{\n    \"errCode\": 500,\n    \"message\": \"Internal server error\"\n}"
+				}
+			]
+		}
+	]
+}

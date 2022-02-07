@@ -24,9 +24,10 @@ const filterAndAddFullImagePath = (data, type) => {
       poster_path: generatePosterPath(el.poster_path),
       type,
     }));
-    return result;
+    return [null, result];
   }
-  return null;
+  const response = Constants.ERR_INTERNAL_SERVER;
+  return [response, null];
 };
 
 const validateDetailRequest = (language, id) => {
@@ -47,10 +48,14 @@ const validateDetailRequest = (language, id) => {
 
 const validateDetails = (data) => {
   if (!data.id && !data.poster_path) {
-    const response = {
-      errCode: data.response.status,
-      message: data.message,
-    };
+    if (data.response && data.response.status && data.message) {
+      const response = {
+        errCode: data.response.status,
+        message: data.message,
+      };
+      return [response, null];
+    }
+    const response = Constants.ERR_INTERNAL_SERVER;
     return [response, null];
   }
   const details = data;

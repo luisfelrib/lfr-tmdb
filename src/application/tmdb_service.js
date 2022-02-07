@@ -12,7 +12,10 @@ const retrieveTrendingMovies = async (language) => {
     return cache;
   }
   const moviesFromTmdb = await TmdbAdapter.getMovies(language);
-  const movies = TmdbDomain.filterAndAddFullImagePath(moviesFromTmdb, 'movie');
+  const [err, movies] = TmdbDomain.filterAndAddFullImagePath(moviesFromTmdb, 'movie');
+  if (err) {
+    return err;
+  }
   CacheAdapter.set(cacheKey, movies);
   return movies;
 };
@@ -27,7 +30,10 @@ const retrieveTrendingTvShows = async (language) => {
     return cache;
   }
   const tvShowsFromTmdb = await TmdbAdapter.getTvShows(language);
-  const tvShows = TmdbDomain.filterAndAddFullImagePath(tvShowsFromTmdb, 'tv');
+  const [err, tvShows] = TmdbDomain.filterAndAddFullImagePath(tvShowsFromTmdb, 'tv');
+  if (err) {
+    return err;
+  }
   CacheAdapter.set(cacheKey, tvShows);
   return tvShows;
 };
