@@ -102,3 +102,4 @@ dist
 .env.dev
 .env_dev.env
 mysql/
+.env.dev.env

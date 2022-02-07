@@ -2,10 +2,10 @@ const TmdbService = require('../../application/tmdb_service');
 const UserService = require('../../application/user_service');
 const Utils = require('../../utils');
 
-const moviesRoute = '/movie';
-const tvShowsRoute = '/tv-show';
-const userRoute = '/user';
-const login = '/login';
+const moviesRoute = '/api/movie';
+const tvShowsRoute = '/api/tv-show';
+const userRoute = '/api/user';
+const login = '/api/login';
 
 module.exports = (app) => {
   app.get(`${moviesRoute}`, async (req, res) => {

@@ -1,5 +1,5 @@
 {
-  "name": "thin-tmdb",
+  "name": "lfr-tmdb",
   "version": "1.0.0",
   "description": "Thin application to show some NodeJS skills using informations of The Movie Database",
   "main": "server.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luisfelrib/thin-tmdb.git"
+    "url": "git+https://github.com/luisfelrib/lfr-tmdb.git"
   },
   "author": "Luis Felipe (luisfelrib@gmail.com)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/luisfelrib/thin-tmdb/issues"
+    "url": "https://github.com/luisfelrib/lfr-tmdb/issues"
   },
-  "homepage": "https://github.com/luisfelrib/thin-tmdb#readme",
+  "homepage": "https://github.com/luisfelrib/lfr-tmdb#readme",
   "devDependencies": {
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
