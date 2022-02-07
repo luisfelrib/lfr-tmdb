@@ -17,7 +17,7 @@ Após isso existem 2 maneiras de executar o projeto:
 $ cd production
 $ docker-compose up -d
 ```
-Verifique se a aplicação está no ar em http://localhost:5000
+Verifique se a aplicação está no ar em http://localhost:5000. Por conta do MySQL pode levar alguns segundos até estar disponível.
 
 ---
 **2- Você pode executar a aplicação do Node manualmente, para isso precisará ter [MySQL](https://dev.mysql.com/doc/refman/8.0/en/installing.html) instalado. Se quiser habilitar o cache deve ter o [Redis](https://redis.io/topics/quickstart) instalado também.**
